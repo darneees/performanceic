@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description"
+        content="Na Clínica Psicológica Performance - Intervenções Comportamentais, oferecemos psicoterapia online baseada em evidências para brasileiros no exterior, casais em conflito e indivíduos que buscam excelência pessoal e profissional Onde a transformação começa com cada comportamento." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Performance Intervenções Comportamentais</title>
+    <!-- import style -->
+    <link rel="stylesheet" href="assets/css-scss/styles.css">
+    <!-- import font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+    <!-- import favicon -->
+    <link rel="shortcut icon" href="assets/img/favicon" type="image/x-icon">
+
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-NJTR7BVG');
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J41N2LDD2S">
+    </script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-J41N2LDD2S');
+    </script>
+</head>
+
+<body id="body">
+    <!-- button scroll to top -->
+    <button onclick="topFunction()" id="scrollTop" title="Ir para o topo" aria-label="Ir para o topo">
+        <ion-icon name="chevron-up-outline"></ion-icon>
+    </button>
+
+    <!-- icone do whatsapp -->
+    <a href="https://api.whatsapp.com/send/?phone=5511979717551&text&type=phone_number&app_absent=0"
+        rel="noopener noreferrer" target="_blank" class="icon-whatsapp" id="whatsapp">
+        <picture>
+            <img src="assets/img/icon.webp" alt="icone do whatsapp">
+        </picture>
+    </a>
+
+    <!-- overlay -->
+    <div id="overlay" class="overlay"></div>
+
+    <!-- message sucess form -->
+    <section id="success-popup">
+        <picture class="message-image">
+            <ion-icon name="checkmark-done-outline"></ion-icon>
+        </picture>
+
+        <article class="message-content">
+            <h2>Recebemos seus dados!</h2>
+            <p>Em até 24 horas úteis, um de nossos especialistas entrará em
+                contato para orientar você sobre os próximos passos.
+                Em caso de urgência, você pode entrar em contato conosco
+                antes pelo WhatsApp, clicando no ícone disponível em nosso
+                site.</p>
+        </article>
+    </section>
+
+    <!-- form -->
+    <section class="section-form" id="section-form">
+
+        <button id="close-form">
+            <ion-icon name="close-circle-outline"></ion-icon>
+        </button>
+
+        <form id="contactForm" class="form-content">
+            <label for="name">
+                <p>Nome completo:<span>*</span></p>
+                <input type="text" id="name" name="name" placeholder="Nome" autocomplete="off" required>
+            </label>
+
+            <section>
+                <article class="form-divisor1">
+                    <label for="gender">
+                        <p>Gênero<span>*</span></p>
+                        <input type="text" id="gender" name="gender" placeholder="Genero" autocomplete="off" required>
+                    </label>
+
+                    <label for="age">
+                        <p>Idade<span>*</span></p>
+                        <input type="number" id="age" name="age" placeholder="ex.: 25" autocomplete="off" required
+                            oninput="if(this.value.length > 3) this.value = this.value.slice(0, 3)">
+                    </label>
+                </article>
+
+                <article class="form-divisor2">
+                    <label for="phone">
+                        <p>Telefone de contato(WhatsApp):<span>*</span></p>
+                        <input type="tel" maxlength="15" id="phone" name="phone" placeholder="(00) 91234-5678"
+                            autocomplete="off" required>
+                    </label>
+
+                    <label for="email">
+                        <p>Email<span>*</span></p>
+                        <input type="email" id="email" name="email" placeholder="email@gmail.com" autocomplete="off"
+                            required>
+                    </label>
+                </article>
+            </section>
+
+            <label for="atendiment">
+                <p>Serviço escolhido:<span>*</span></p>
+                <select name="atendimento" id="atendiment" required onchange="showOptions()">
+                    <option value disabled selected>Escolha uma
+                        opção:</option>
+                    <option value="Psicoterapia individual">Psicoterapia
+                        individual</option>
+                    <option value="Psicoterapia para casais">Psicoterapia
+                        para casais</option>
+                    <option value="Psicoterapia para brasileiros no exterior">Psicoterapia
+                        para brasileiros no exterior</option>
+                    <option value="Orientação parental">Orientação
+                        parental</option>
+                </select>
+            </label>
+
+            <article id="individual" class="extra-options" style="display: none;">
+                <p>Escolha do Pacote de Psicoterapia Comportamental
+                    Individual:<span>*</span></p>
+                <select name="pacoteIndividual" id="pacoteIndividual">
+                    <option value disabled selected>Selecione o
+                        pacote</option>
+                    <option value="Terapia de sessão única: R$350,00">Terapia de
+                        sessão única: R$350,00</option>
+                    <option
+                        value="Pacote de 4 sessões de psicoterapia por R$1.000,00 (para pagamento antecipado do pacote) por mês">
+                        Pacote
+                        de 4 sessões de psicoterapia por R$1.000,00 (para
+                        pagamento antecipado do pacote) por mês</option>
+                    <option
+                        value="Pacote de 4 sessões de psicoterapia + 1 sessão com nutricionista por R$2.000,00 por mês">
+                        Pacote
+                        de 4 sessões de psicoterapia + 1 sessão com
+                        nutricionista por R$2.000,00 (para pagamento
+                        antecipado do pacote) por mês</option>
+                    <option
+                        value="Pacote de 4 sessões  de psicoterapia + 1 sessão com nutricionista + 1 sessão com psiquiatra por R$3.200,00 por mês">
+                        Pacote
+                        de 4 sessões de psicoterapia + 1 sessão com
+                        nutricionista + 1 sessão com psiquiatra por
+                        R$3.200,00 por mês</option>
+                </select>
+            </article>
+
+            <article id="casais" class="extra-options" style="display: none;">
+                <p>Escolha do Pacote de Psicoterapia Comportamental para
+                    Casal:<span>*</span></p>
+                <select name="pacoteCasais" id="pacoteCasais">
+                    <option value disabled selected>Selecione o
+                        pacote</option>
+                    <option value="Terapia de sessão única: R$600,00">Terapia de
+                        sessão única: R$600,00</option>
+                    <option value="Pacote de 4 sessões conjuntas de psicoterapia por R$1.800,00">Pacote
+                        de 4 sessões conjuntas de psicoterapia por
+                        R$1.800,00</option>
+                    <option
+                        value="Pacote de 6 sessões de psicoterapia a serem divididas entre sessões individuais e sessões conjuntas + 2 sessões individuais com nutricionista por R$3.500,00">
+                        Pacote
+                        de 6 sessões de psicoterapia a serem divididas entre
+                        sessões individuais e sessões conjuntas + 2 sessões
+                        individuais com nutricionista por
+                        R$3.500,00</option>
+                    <option
+                        value="Pacote de 8 sessões de psicoterapia a serem divididas entre sessões individuais e sessões conjuntas + 2 sessões individuais com nutricionista + 2 sessões individuais com psiquiatra por R$5.600,00.">
+                        Pacote
+                        de 8 sessões de psicoterapia a serem divididas entre
+                        sessões individuais e sessões conjuntas + 2 sessões
+                        individuais com nutricionista + 2 sessões
+                        individuais com psiquiatra por R$5.600,00.</option>
+                </select>
+            </article>
+
+            <article id="parental" class="extra-options" style="display: none;">
+                <p>Escolha do Pacote de Orientação
+                    Parental:<span>*</span></p>
+                <select name="pacoteParental" id="pacoteParental">
+                    <option value disabled selected>Selecione o
+                        pacote</option>
+                    <option value="Orientação parental de sessão única: R$300,00">Orientação
+                        parental de sessão única: R$300,00</option>
+                    <option value="Pacote com 4 orientações parentais por mês: R$1.000,00">Pacote
+                        com 4 orientações parentais por mês:
+                        R$1.000,00</option>
+                </select>
+            </article>
+
+            <article id="exterior" class="extra-options" style="display: none;">
+                <p>Para os brasileiros no exterior, o custo das sessões será
+                    calculado com base no valor médio da terapia no país de
+                    residência do paciente. Selecione a moeda em que deseja
+                    pagar (Dólar, Euro ou Libra) e aguarde um de nossos
+                    especialistas entrar em contato via whatsapp em até 24h
+                    úteis para concluir a adesão do plano.</p>
+                <select name="moeda" id="moeda">
+                    <option value disabled selected>Selecione a
+                        moeda</option>
+                    <option value="Dólar">Dólar</option>
+                    <option value="Euro">Euro</option>
+                    <option value="Libra">Libra</option>
+                </select>
+            </article>
+
+            <label for="prefer">
+                <p>Preferência por terapeuta:<span>*</span></p>
+                <select name="prefer" id="prefer" required>
+                    <option value disabled selected>Escolha uma
+                        opção:</option>
+                    <option value="Homem">Homem</option>
+                    <option value="Mulher">Mulher</option>
+                    <option value="Não há preferência">Não há
+                        preferência</option>
+                </select>
+            </label>
+
+            <button type="submit">
+                Enviar
+                <ion-icon name="send-outline"></ion-icon>
+            </button>
+        </form>
+    </section>
+
+    <!-- header -->
+    <header>
+        <nav>
+            <a href="#body" class="logo">
+                <picture>
+                    <img src="assets/img/logo.svg" alt>
+                </picture>
+                <article>
+                    <span>Performance</span>
+                    <br>
+                    <span>Intervenções <br>Comportamentais</span>
+                </article>
+            </a>
+
+            <ul class="menu">
+                <li><a href="#experts_container">Especialistas</a></li>
+                <li><a href="#services_container">Estratégias e intervenções</a></li>
+                <li><a href="#blog_container">Blog</a></li>
+                <li><a href="#doubts_container">Dúvidas</a></li>
+                <li><a href="#aboutus_container">Sobre nós</a></li>
+            </ul>
+
+            <button id="open-menu" class="open">
+                <ion-icon name="reorder-two-outline"></ion-icon>
+            </button>
+
+            <menu class="menu-mobile" id="menu-mobile">
+                <li><a href="#experts_container" class="menu-link">Especialistas</a></li>
+                <li><a href="#services_container" class="menu-link">Estratégias e intervenções</a></li>
+                <li><a href="#blog_container" class="menu-link">Blog</a></li>
+                <li><a href="#doubts_container" class="menu-link">Dúvidas</a></li>
+                <li><a href="#aboutus_container" class="menu-link">Sobre nós</a></li>
+
+                <button id="close-menu" class="close">
+                    <ion-icon name="close-outline"></ion-icon>
+                </button>
+            </menu>
+        </nav>
+
+    </header>
+
+    <!-- main -->
+    <main>
+
+        <!-- main home -->
+        <section id="home_container">
+            <section class="home_content">
+                <article class="content">
+                    <h2>Intervenções comportamentais <span>baseadas em evidências</span> para situações reais e
+                        complexas</h2>
+                    <p>Se você está lidando com ansiedade, conflitos, desregulação emocional ou padrões difíceis de
+                        mudar, aqui você encontra estratégias práticas para transformar isso na vida real.</p>
+                </article>
+                <article class="content">
+                    <button type="submit" class="open-form">
+                        <ion-icon name="calendar-outline"></ion-icon>
+                        <span>Agendar consulta</span>
+                    </button>
+                </article>
+            </section>
+        </section>
+        <!-- main experts -->
+        <section id="experts_container">
+            <article>
+                <h2>Conheça os especialistas que vão <span>te acompanhar nesse processo</span></h2>
+            </article>
+
+            <section class="experts_content">
+                <article class="experts_card one">
+                    <picture>
+                        <img src="assets/img/photo-1.webp" alt="imagem de perfil do psicologo Arthur"
+                            title="Arthur Dylan">
+                        <h3>Arthur Dylan</h3>
+                        <article class="picture_content">
+                            <p><span>CRP:</span> <br>06/184683</p>
+                            <a href="https://api.whatsapp.com/send/?phone=5511979717551&text&type=phone_number&app_absent=0"
+                                target="_blank" rel="noopener noreferrer">
+                                <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+                            </a>
+                        </article>
+                    </picture>
+                    <article class="card_content">
+                        <p>Psicólogo com 6 anos de experiência em Análise do
+                            Comportamento e ABA. Especialista em atendimento
+                            clínico-comportamental para crianças,
+                            adolescentes e
+                            adultos, incluindo manejo de crises e
+                            comportamentos
+                            agressivos. Atua com brasileiros no exterior,
+                            famílias públicas e celebridades, estrangeiros
+                            que
+                            falam português e refugiados.</p>
+                    </article>
+                </article>
+
+                <article class="experts_card three">
+                    <picture>
+                        <img src="assets/img/photo-3.webp" alt="imagem de perfil do psicologo Lucas"
+                            title="Lucas Morais">
+                        <h3>Lucas Morais</h3>
+                        <article class="picture_content">
+                            <p><span>CRP:</span> <br>06/204023</p>
+                            <a href="https://api.whatsapp.com/send/?phone=5511979717551&text&type=phone_number&app_absent=0"
+                                target="_blank" rel="noopener noreferrer">
+                                <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+                            </a>
+                        </article>
+                    </picture>
+                    <article class="card_content">
+                        <p>Psicólogo com 4 anos de experiência e
+                            pós-graduando
+                            em Análise do Comportamento. Supervisor clínico
+                            especializado em treinamento de equipes e
+                            orientação
+                            de pais. Oferece atendimento comportamental a
+                            brasileiros no exterior e palestras em escolas,
+                            focando em mudanças duradouras na saúde
+                            mental.</p>
+                    </article>
+                </article>
+            </section>
+        </section>
+        <!-- main services -->
+        <section id="services_container">
+            <h2>Diferentes formas de intervenção para <span>diferentes níveis de necessidade</span></h2>
+
+            <section class="services_content">
+
+                <article class="services_card srv1">
+                    <picture>
+                        <ion-icon name="earth-outline"></ion-icon>
+                    </picture>
+                    <article>
+                        <h3>Psicoterapia para Brasileiros que Moram no
+                            Exterior</h3>
+                        <p>
+                            Para brasileiros no exterior, entendemos que a
+                            saudade e a distância tornam os
+                            desafios ainda maiores. Nossa clínica oferece um
+                            espaço acolhedor, com apoio e
+                            estratégias para superar essas dificuldades e
+                            planejar um futuro que faça sentido
+                            para você.
+                        </p>
+                    </article>
+                </article>
+
+                <article class="services_card srv2">
+                    <picture>
+                        <ion-icon name="heart-circle-outline"></ion-icon>
+                    </picture>
+                    <article>
+                        <h3>Orientação Parental</h3>
+                        <p>
+                            Dentre as diversas nuances que envolvem a
+                            parentalidade, enfrentar dificuldades
+                            sem suporte psicológico pode ser ainda mais
+                            desafiador. Nossa equipe oferece uma
+                            abordagem embasada na ciência para ajudar a
+                            fortalecer os laços familiares e
+                            construir uma parentalidade com mais confiança e
+                            segurança.
+                        </p>
+                    </article>
+                </article>
+
+                <article class="services_card srv4">
+                    <picture>
+                        <ion-icon name="person-outline"></ion-icon>
+                    </picture>
+                    <article>
+                        <h3>Psicoterapia Individual</h3>
+                        <p>
+                            Nossa clínica oferece um espaço seguro para
+                            promover mudanças significativas
+                            com abordagens baseadas em evidências
+                            científicas, ajudando você a construir
+                            habilidades para que sua própria mente seja uma
+                            boa companhia para você.
+                        </p>
+                    </article>
+                </article>
+
+                <article class="services_card srv5">
+                    <picture>
+                        <ion-icon name="people-outline"></ion-icon>
+                    </picture>
+                    <article>
+                        <h3>Psicoterapia de Casal</h3>
+                        <p>
+                            Na Performance, nosso trabalho com casais foca
+                            em melhorar a comunicação e
+                            fortalecer os laços emocionais, com ferramentas
+                            práticas que ajudam a construir um
+                            relacionamento mais satisfatório.
+                        </p>
+                    </article>
+                </article>
+
+                <article class="services_card srv3">
+                    <picture>
+                        <ion-icon name="easel-outline"></ion-icon>
+                    </picture>
+                    <article>
+                        <h3>Treinamentos</h3>
+                        <p>
+                            Estratégias aplicáveis para aprender a lidar com emoções e comportamentos difíceis.
+                        </p>
+                    </article>
+                </article>
+
+                <article class="services_card srv6">
+                    <picture>
+                        <ion-icon name="receipt-outline"></ion-icon>
+                    </picture>
+                    <article>
+                        <h3>Neuroavaliação</h3>
+                        <p>
+                            Investigação aprofundada para compreender padrões cognitivos e comportamentais.
+                        </p>
+                    </article>
+                </article>
+
+            </section>
+        </section>
+        <!-- main nr1 -->
+        <section id="nr1_container">
+            <article class="nr1_content">
+                <h2>Soluções também para empresas e equipes</h2>
+                <h4>Levamos a ciência do comportamento para ambientes organizacionais de alta demanda.</h4>
+                <p>Além dos atendimentos clínicos, a Performance também atua com treinamentos e intervenções
+                    comportamentais voltadas para empresas.
+
+                    Desenvolvemos soluções práticas para ajudar equipes a lidarem com:</p>
+                    <ul>
+                        <li>- estresse e pressão no ambiente de trabalho</li>
+                        <li>- comunicação e conflitos internos</li>
+                        <li>- regulação emocional em contextos exigentes</li>
+                        <li>- desenvolvimento de performance com base em ciência</li>
+                    </ul>
+            </article>
+
+            <a href="https://medium.com/@PerformanceIC" target="_blank" rel="noopener noreferrer" class="nr1_link">
+                Conheça os treinamentos para empresas
+            </a>
+        </section>
+        <!-- main blog -->
+        <section id="blog_container">
+            <article class="blog_content">
+                <h2>Conteúdo prático <span>baseado em ciência</span> para mudanças reais</h2>
+                <p>No blog da Performance, você encontra conteúdos diretos ao ponto, baseados em evidências científicas
+                    e focados no que realmente funciona na prática.
+                    <br>
+                    Aqui, não falamos só sobre entender emoções —
+                    falamos sobre o que fazer com elas no dia a dia.
+                </p>
+                <p>Tudo com uma abordagem clara, aplicável e construída a partir da psicologia comportamental.
+
+                    Se o seu objetivo é sair da teoria e começar a agir com mais clareza, esse conteúdo é para você.</p>
+            </article>
+
+            <a href="https://medium.com/@PerformanceIC" target="_blank" rel="noopener noreferrer" class="blog_link">
+                Acessar o blog
+            </a>
+        </section>
+        <!-- main doubts -->
+        <section id="doubts_container" role="region" aria-labelledby="doubts__title">
+
+            <h2 id="questions__title">Dúvidas</h2>
+
+            <button class="accordion" aria-controls="panel1" aria-expanded="false">Como a terapia comportamental pode me
+                ajudar a lidar com os desafios específicos que enfrento no
+                meu dia-a-dia?</button>
+
+            <article class="panel" id="panel1" role="region" aria-labelledby="accordion1">
+                <p>Na Performance, adotamos abordagens amplamente
+                    respaldadas pela literatura das Terapias Contextuais e
+                    Terapias Comportamentais. Nossos terapeutas
+                    especializados empregam técnicas comprovadas
+                    cientificamente para enfrentar desafios como ansiedade,
+                    depressão, traumas e padrões comportamentais
+                    disfuncionais. Ao se concentrarem em estratégias
+                    práticas e objetivas, eles trabalham em colaboração com
+                    você para identificar soluções adaptativas que promovam
+                    uma mudança significativa e sustentável em sua vida
+                    diária.</p>
+            </article>
+
+            <button class="accordion" aria-controls="panel2" aria-expanded="false">Como funciona o processo de terapia
+                online e quais são as vantagens em comparação com a terapia
+                presencial?</button>
+
+            <article class="panel" id="panel2" role="region" aria-labelledby="accordion1">
+                <p>Com a terapia online na Performance, você desfruta da
+                    comodidade de receber suporte terapêutico de qualquer
+                    lugar, eliminando a necessidade de deslocamento e
+                    permitindo que você se concentre totalmente em seu
+                    bem-estar. Utilizamos uma plataforma online segura e
+                    fácil de usar, garantindo uma experiência terapêutica
+                    eficaz e conveniente.</p>
+            </article>
+
+            <button class="accordion" aria-controls="panel3" aria-expanded="false">Posso selecionar a preferência de
+                gênero do terapeuta para minha sessão?</button>
+
+            <article class="panel" id="panel3" role="region" aria-labelledby="accordion1">
+                <p>Sim, na Performance, reconhecemos a importância do
+                    conforto e da confiança na relação terapêutica. Por
+                    isso, oferecemos a opção para você escolher se prefere
+                    ser atendido por um terapeuta homem ou mulher. Nosso
+                    objetivo é garantir que você se sinta completamente à
+                    vontade durante suas sessões, para que possa se engajar
+                    ao máximo no processo terapêutico.</p>
+            </article>
+
+            <button class="accordion" aria-controls="panel3" aria-expanded="false">Qual é o custo da terapia
+                comportamental online e quais são as opções de pagamento
+                disponíveis?</button>
+
+            <article class="panel" id="panel3" role="region" aria-labelledby="accordion1">
+                <p>O custo da terapia comportamental online é calculado com
+                    base em seu plano de manejo e intervenção personalizado,
+                    garantindo que cada sessão seja adaptada às suas
+                    necessidades. Além disso, oferecemos a flexibilidade de
+                    pagamento em Real, Dólar, Euro e Libras. O valor da
+                    sessão será ajustado conforme a média do custo das
+                    sessões no país de residência do paciente,
+                    proporcionando um serviço justo e acessível. As
+                    informações sobre os valores das sessões avulsas podem
+                    ser encontradas em nossa <strong>página de
+                        pagamento</strong> enquanto os valores dos pacotes
+                    estão disponíveis ao preencher a <strong><a
+                            href="https://docs.google.com/forms/d/e/1FAIpQLSdqoC8XeGOWcZDcjMPF2Q5xeycL6gGJXAgxdT8EO4A1hOb_TQ/viewform?usp=sf_link">lista
+                            de
+                            espera</a></strong>.
+                    Oferecemos diversas opções de pagamento para garantir
+                    sua comodidade e segurança financeira durante todo o
+                    processo terapêutico.</p>
+            </article>
+
+            <button class="accordion" aria-controls="panel3" aria-expanded="false">Como funciona a política de
+                devolução?</button>
+
+            <article class="panel" id="panel3" role="region" aria-labelledby="accordion1">
+                <p>Se, após a primeira sessão, você sentir que nossos
+                    serviços não atendem às suas expectativas, oferecemos a
+                    devolução integral do valor pago. Nosso compromisso é
+                    com sua satisfação e progresso, garantindo que você se
+                    sinta seguro e apoiado durante todo o processo
+                    terapêutico.</p>
+            </article>
+
+            <button class="accordion" aria-controls="panel3" aria-expanded="false">Quais são as estratégias de
+                acompanhamento e recursos adicionais oferecidos pela clínica
+                para apoiar minha jornada de autocuidado e crescimento
+                pessoal além das sessões de terapia?</button>
+
+            <article class="panel" id="panel3" role="region" aria-labelledby="accordion1">
+                <p>Além das sessões terapêuticas, fornecemos estratégias de
+                    acompanhamento personalizado e uma variedade de recursos
+                    complementares, como materiais educativos exclusivos e
+                    suporte contínuo, para fortalecer seu processo de
+                    autocuidado e promover seu crescimento pessoal de forma
+                    assertiva.</p>
+            </article>
+
+            <button class="accordion" aria-controls="panel3" aria-expanded="false">Quais são as medidas de segurança e
+                privacidade implementadas durante as sessões de terapia
+                comportamental online?</button>
+
+            <article class="panel" id="panel3" role="region" aria-labelledby="accordion1">
+                <p>A Lei Geral de Proteção de Dados (Lei no 13.709 de 14 de
+                    agosto de 2018) será obedecida em todos os seus termos
+                    pelo(a) psicólogo(a), obrigando-se a tratar os dados
+                    do(a) paciente que forem eventualmente coletados
+                    conforme sua necessidade ou obrigatoriedade. Além disso,
+                    os profissionais exercerão suas funções pautados nas
+                    normativas éticas do Conselho Federal de Psicologia.</p>
+            </article>
+
+        </section>
+        <!-- main about us -->
+        <section id="aboutus_container" role="region" aria-labelledby="about__title">
+            <h2><span>A Performance nasceu</span> da prática real — não da teoria</h2>
+
+            <section class="about_content">
+                <div class="carrossel-container">
+                    <button class="botao-nav prev" onclick="mudarSlide(-1)">&#10094;</button>
+                    <div class="carrossel-track" id="track">
+                        <img src="assets/img/sobre/image-2.jpeg" alt="Imagem 1">
+                        <img src="assets/img/sobre/image-3.jpeg" alt="Imagem 2">
+                        <img src="assets/img/sobre/image-4.jpeg" alt="Imagem 3">
+                        <img src="assets/img/sobre/image-5.jpeg" alt="Imagem 4">
+                        <img src="assets/img/sobre/image-1.jpeg" alt="Imagem 5">
+                    </div>
+                    <button class="botao-nav next" onclick="mudarSlide(1)">&#10095;</button>
+                </div>
+
+                <article class="about_text">
+                    <p>A Performance surgiu a partir de um ponto em comum entre seus fundadores: a busca por um trabalho
+                        clínico que fosse, de fato, técnico, aplicável e baseado em evidências.</p>
+                    <p>Arthur e Lucas se conheceram durante a formação em psicologia, atuando diretamente em contextos
+                        de alta complexidade — incluindo intervenções com comportamentos intensos, ambientes de alta
+                        demanda e situações que exigiam precisão, não improviso.</p>
+                    <p>Ao longo da prática clínica, uma percepção se repetia:
+
+                        Muitas abordagens prometiam transformação,
+                        mas poucas entregavam estratégia real.
+
+                        Essa insatisfação deixou de ser apenas crítica —
+                        e se tornou critério.</p>
+                    <p>Em 2024, após anos de atuação com casos complexos, supervisões clínicas e atendimentos em
+                        diferentes contextos, decidiram consolidar aquilo que já praticavam na essência:</p>
+                    <p>um modelo de intervenção comportamental baseado em ciência, clareza e aplicação real.</p>
+                </article>
+            </section>
+        </section>
+    </main>
+
+    <!-- footer -->
+    <footer>
+
+        <section class="footer_content">
+            <h2>Dê o primeiro passo para uma <span>mudança
+                    real e estruturada</span></h2>
+            <p>Agende sua consulta e comece a construir estratégias que realmente funcionam.</p>
+
+            <button type="submit" class="open-form">
+                <ion-icon name="calendar-outline"></ion-icon>
+                <span>Agendar consulta</span>
+            </button>
+        </section>
+
+        <span class="contact__copy">Copyright © Performance Intervenções
+            Comportamentais 2026.
+            <br>
+            Todos os direitos reservados. built by
+            <a href="https://bento.me/darneees" rel="noopener noreferrer" target="_blank">Douglas Sa</a></span>
+    </footer>
+
+    <!-- Import Scroll Reveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <!-- import icon -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <!-- import js -->
+    <script src="assets/js/script.js"></script>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NJTR7BVG" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+</body>
+
+</html>
